@@ -215,6 +215,9 @@ export default class LoginScreen extends React.Component {
             </TouchableOpacity>
           </View>
         </View>
+        {this.state.loading &&
+          <ProgressSpin />
+        }
       </SafeAreaView>
 
 

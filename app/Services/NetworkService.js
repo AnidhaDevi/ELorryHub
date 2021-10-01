@@ -13,7 +13,8 @@ export default class NetworkService {
         let strInput = JSON.stringify(logindata)
         console.log("login service ==> ", strInput)
 
-        let requesturl = Constants.ApiBaseUrl + 'v1/otp/generate?' + strInput
+        let requesturl = Constants.ApiBaseUrl + 'v1/otp/generate?data=' + strInput
+
         console.log("input ==>", requesturl, strInput)
 
         return fetch(requesturl, {
@@ -22,11 +23,11 @@ export default class NetworkService {
                 Accept: "application/json",
                 'Content-Type': 'application/json', // <-- Specifying the Content-Type
             },
-            //body: strInput
-            body: JSON.stringify({
-                data: '' + strInput,
-                secondParam: 'yourOtherValue'
-            })
+            body: strInput
+            // body: JSON.stringify({
+            //     data: '' + strInput,
+            //     secondParam: 'yourOtherValue'
+            // })
 
         })
             .then((response) => //{ 
@@ -50,7 +51,7 @@ export default class NetworkService {
         let strInput = JSON.stringify(logindata)
         console.log("login service ==> ", strInput)
 
-        let requesturl = Constants.ApiBaseUrl + 'v1/otp/validate?' + strInput
+        let requesturl = Constants.ApiBaseUrl + 'v1/otp/validate?data=' + strInput
         console.log("input ==>", requesturl, strInput)
 
         return fetch(requesturl, {

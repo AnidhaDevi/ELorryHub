@@ -61,6 +61,9 @@ export default class OTPScreen extends React.Component {
     console.log("phoneno==>", phoneno);
     console.log("token==>", otp);
 
+
+    //this.props.navigation.navigate("FirstScreen");
+
     this.setState({ loading: true });
     const networkServiceObj = new NetworkService()
     let input = {
@@ -77,26 +80,33 @@ export default class OTPScreen extends React.Component {
 
         AsyncStorage.setItem("isloggedin", "No");
 
+        console.log("res==========>", response.status);
+
         if (response.status == 'success') {
 
-          AsyncStorage.setItem("isloggedin", "Yes");
+          console.log("res==========>", response.data.user);
+
+          if (response.data.user == null) {
+
+            this.props.navigation.navigate("FirstScreen");
+
+          }
+          else {
+
+            // AsyncStorage.setItem("isloggedin", "Yes");
 
 
-          AsyncStorage.setItem("user_id", response.data.user.id);
+            // AsyncStorage.setItem("user_id", response.data.user.id);
 
-          AsyncStorage.setItem("Token", this.state.data.token);
+            // AsyncStorage.setItem("Token", this.state.data.token);
 
-          AsyncStorage.setItem("user_name", response.data.user.name);
+            // AsyncStorage.setItem("user_name", response.data.user.name);
 
-          AsyncStorage.setItem("isloggedin", "Yes");
+            // AsyncStorage.setItem("isloggedin", "Yes");
 
-          this.props.navigation.navigate("FirstScreen",
-            {
-              user_id: response.user_id,
-              User_Name: response.user_name,
-            });
+            this.props.navigation.navigate("Home");
 
-
+          }
 
         } else {
           AsyncStorage.setItem("isloggedin", "No");
@@ -254,6 +264,9 @@ export default class OTPScreen extends React.Component {
           </TouchableOpacity>
 
         </View>
+        {this.state.loading &&
+          <ProgressSpin />
+        }
       </SafeAreaView >
 
 

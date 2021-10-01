@@ -26,7 +26,7 @@ const APP_HEIGHT = Dimensions.get("window").height;
 
 
 
-export default class FirstScreen extends React.Component {
+export default class Registerscreen extends React.Component {
 
 
     constructor(props) {
@@ -35,9 +35,6 @@ export default class FirstScreen extends React.Component {
             loading: false,
             otp_val: '',
         }
-
-
-
 
         this.handleBackButtonClick = this.handleBackButtonClick.bind(this);
     }
