@@ -13,6 +13,8 @@ import Homescreen from './Screens/Homescreen';
 import Directoryscreen from './Screens/Directory';
 import Profilescreen from './Screens/Profile';
 import MyLoadsscreen from './Screens/MyLoads';
+import MyTrucksscreen from './Screens/MyTrucks';
+
 import PostTruckScreen from './Screens/PostTruck';
 
 const Navigation = createStackNavigator({
@@ -27,6 +29,7 @@ const Navigation = createStackNavigator({
   Directoryscreen: { screen: Directoryscreen},
   Profilescreen: { screen: Profilescreen},
   MyLoadsscreen: { screen: MyLoadsscreen},
+  MyTrucksscreen: { screen: MyTrucksscreen},
   PostTruck: { screen: PostTruckScreen },
 },
   {

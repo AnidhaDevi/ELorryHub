@@ -1,59 +1,171 @@
-import React, { Component } from "react"
-import {
-  Text, Dimensions
-} from 'react-native'
+import React from 'react';
+import { SafeAreaView,Text,StyleSheet,View,TextInput,ScrollView ,Button} from 'react-native';
 
-
-
-import { BackHandler } from 'react-native';
-
-
-const APP_WIDTH = Dimensions.get("window").width;
-const APP_HEIGHT = Dimensions.get("window").height;
-
-export default class PostTruckScreen extends React.Component {
-
-
-  constructor(props) {
-    super(props);
-
-
-    this.state = {
-      loading: false,
-      strName: '',
-
-    }
-    this.handleBackButtonClick = this.handleBackButtonClick.bind(this);
-  }
-
-  componentDidMount() {
-    BackHandler.addEventListener('hardwareBackPress', this.handleBackButtonClick);
-
-  }
-
-  componentWillUnmount() {
-    BackHandler.removeEventListener('hardwareBackPress', this.handleBackButtonClick);
-  }
-
-  handleBackButtonClick() {
-    this.props.navigation.goBack(null);
-    return true;
-  }
-
-
-
-
-
-
-  render() {
-
-
-
+const Event =(props) => {
     return (
+        <ScrollView style={styles.container}>
+            <Text style={{textAlign:'center',fontWeight:'bold',fontSize:20,color:'#6b8e23'}}>Post Truck</Text>
+            <View style={{flexDirection:'row'}}>
+        <View style={styles.input1}>
+      <TextInput
+        placeholder='From time'
+        autoCapitalize="none"
+        placeholderTextColor='#020000'
+        onChangeText={val => this.onChangeText('username', val)}
+      />
+      </View>
+  <View style={styles.input1}>
+      <TextInput
+        placeholder='To Time'
+        autoCapitalize="none"
+        placeholderTextColor='#020000'
+        onChangeText={val => this.onChangeText('email', val)}
+      />
+      </View>
+      </View>
+      <View style={{flexDirection:'row'}}>
+        <View style={styles.input1}>
+      <TextInput
+        placeholder='From Location'
+        autoCapitalize="none"
+        placeholderTextColor='#020000'
+        onChangeText={val => this.onChangeText('username', val)}
+      />
+      </View>
+  <View style={styles.input1}>
+      <TextInput
+        placeholder='To Location'
+        autoCapitalize="none"
+        placeholderTextColor='#020000'
+        onChangeText={val => this.onChangeText('email', val)}
+      />
+      </View>
+      </View>
+      <View style={styles.input}>
+      <TextInput
+        placeholder='Vehicle Model'
+        autoCapitalize="none"
+        placeholderTextColor='#020000'
+        onChangeText={val => this.onChangeText('email', val)}
+      />
+      </View>
+      <View style={styles.input}>
+      <TextInput
+        placeholder='Vehicle No'
+        autoCapitalize="none"
+        placeholderTextColor='#020000'
+        onChangeText={val => this.onChangeText('phone_number', val)}
+      />
+      </View>
 
-      <Text>Testing</Text>
+      <View style={styles.input}>
+          <View style={{flexDirection:'row'}}>
+      <TextInput
+     
+        placeholder='Vehicle Type'
+        autoCapitalize="none"
+        placeholderTextColor='#020000'
+        onChangeText={val => this.onChangeText('Role', val)}
+      />
+        </View>
+      </View> 
 
-    )
-  }
+
+      <View style={styles.input}>
+          <View style={{flexDirection:'row'}}>
+      <TextInput
+     
+        placeholder='Maximum Load'
+        autoCapitalize="none"
+        placeholderTextColor='#020000'
+        onChangeText={val => this.onChangeText('Role', val)}
+      />
+        </View>
+      </View> 
+
+      <View style={styles.input}>
+          <View style={{flexDirection:'row'}}>
+      <TextInput
+     
+        placeholder='Load status'
+        autoCapitalize="none"
+        placeholderTextColor='#020000'
+        onChangeText={val => this.onChangeText('Role', val)}
+      />
+        </View>
+      </View> 
+      <View style={styles.input}>
+          <View style={{flexDirection:'row'}}>
+      <TextInput
+        placeholder='Add discribtion'
+        autoCapitalize="none"
+        placeholderTextColor='#020000'
+        onChangeText={val => this.onChangeText('Role', val)}
+      />
+        </View>
+      </View> 
+      <View style={styles.input3}><Text style={{textAlign:'center',fontWeight:'bold',fontSize:20}}>Submit</Text></View>
+
+      
+    </ScrollView> 
+  )
 }
 
+
+const styles = StyleSheet.create({
+input: {
+  
+  marginLeft: 20,
+  width: 350,
+  height: 55,
+  backgroundColor: '#E5E5E5',
+  margin: 10,
+  padding: 8,
+  color: '#040404',
+  borderRadius: 14,
+  fontSize: 18,
+  fontWeight: '500',
+  marginTop:20
+},
+input1: {
+  
+    marginLeft: 20,
+    width: 160,
+    height: 55,
+    backgroundColor: '#E5E5E5',
+    margin: 10,
+    padding: 8,
+    color: '#040404',
+    borderRadius: 14,
+    fontSize: 18,
+    fontWeight: '500',
+    marginTop:20,
+    alignSelf:'center'
+
+  },
+  input3: {
+  
+    marginLeft: 20,
+    width: 160,
+    height: 55,
+    backgroundColor: '#6b8e23',
+    margin: 10,
+    padding: 8,
+    color: '#040404',
+    borderRadius: 14,
+    fontSize: 18,
+    fontWeight: '500',
+    marginTop:20,
+    alignItems:'center',
+    alignSelf:'center'
+  },
+container: {
+  marginTop: 10,
+  flex: 1,
+  backgroundColor:"#ffff"
+  // justifyContent: 'center',
+  // alignItems: 'center'
+}
+})
+
+export default Event;

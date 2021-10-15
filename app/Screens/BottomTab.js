@@ -1,15 +1,18 @@
 import React from 'react';
+import { BottomModalProvider, useBottomModal } from 'react-native-bottom-modal'
 import { BackHandler } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import Home from '../Screens/Homescreen';
 import Profile from'../Screens/Profile';
 import Directory from '../Screens/Directory';
 import MyLoads from '../Screens/MyLoads';
+import MyTrucks from '../Screens/MyTrucks';
+
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer} from '@react-navigation/native';
 import Icons from 'react-native-vector-icons/FontAwesome5';
 
-import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, Image, Button } from 'react-native'
 const Tab = createBottomTabNavigator(
 );
  
@@ -59,7 +62,7 @@ return (
             tabBarShowLabel: false,
 
         }}>
-            <Tab.Screen name="Home" options={{
+            <Tab.Screen name="MyTrucks" options={{
                 headerShown: false,
                 tabBarIcon: ({ focused }) => (
                     <View style={{ alignItems: 'center', justifyContent: 'center', top: 10 }}>
@@ -69,7 +72,7 @@ return (
                             style={{
                                 width: 45,
                                 height: 40,
-                                tintColor: focused ? '#e32f45' : '#839BDA',
+                                tintColor: focused ? '#4964D8' : '#AAAAAA',
                                 marginBottom: 18
 
                             }}
@@ -89,22 +92,22 @@ return (
 
 
                         <Image
-                            source={require('../Images/directory.png')}
+                            source={require('../Images/myloads.png')}
                             resizeMode='contain'
                             style={{
                                 width: 45,
                                 height: 40,
-                                tintColor: focused ? '#e32f45' : '#839BDA',
+                                tintColor: focused ? '#4964D8' : '#AAAAAA',
                                 marginBottom: 18
                             }}
                         />
 
                     </View>
                 ),
-            }} component={MyLoads} />
+            }} component={Home} />
 
 
-            {/* <Tab.Screen name="home" options={{
+            <Tab.Screen name="Post" options={{
                 headerShown: false,
                 tabBarIcon: ({ focused }) => (
                     <Image
@@ -113,16 +116,38 @@ return (
                         style={{
                             width: 60,
                             height: 60,
-                            tintColor: focused ? '#e32f45' : '#839BDA',
+                            tintColor: focused ? '#4964D8' : '#AAAAAA',
                             marginBottom: 35
 
                         }}
                     />
                 ),
-                // tabBarButton: (props) => (
-                //     <CustomTabBarButton {...props}/>
-                // )
-            }} component={Home} /> */}
+              
+            }} component={Post} />
+
+            
+            <Tab.Screen name="Directory" options={{
+                headerShown: false,
+                tabBarIcon: ({ focused }) => (
+                    <View style={{ alignItems: 'center', justifyContent: 'center', top: 10 }}>
+
+
+                    <Image
+                        source={require('../Images/directory.png')}
+                        resizeMode='contain'
+                        style={{
+                            width: 45,
+                            height: 40,
+                            tintColor: focused ? '#4964D8' : '#AAAAAA',
+                            marginBottom: 18
+
+                        }}
+                    />
+                    {/* <Text>Profile</Text> */}
+                </View>
+                ),
+           
+            }} component={Directory} />
 
             <Tab.Screen name="Profile" options={{
                 headerShown: false,
@@ -136,7 +161,7 @@ return (
                             style={{
                                 width: 45,
                                 height: 40,
-                                tintColor: focused ? '#e32f45' : '#839BDA',
+                                tintColor: focused ? '#4964D8' : '#4964D8 ',
                                 marginBottom: 18
 
                             }}
@@ -152,3 +177,41 @@ return (
 );
 }
 }
+
+const Post = () => {
+
+    return (
+        <BottomModalProvider>
+          <Example />
+        </BottomModalProvider>
+    )
+  
+}
+ 
+  const Example = () => {
+    const { showModal } = useBottomModal()
+    return (
+        <View
+        style={{
+          flexDirection: "row",
+          height: 100,
+          padding: 20
+        }}
+        >
+        <Button
+          onPress={() =>
+            showModal({
+              header: <ModalHeader/>,
+              content: (
+                <StyledModal>
+                  <CartCheckout/>
+                </StyledModal>
+              ),
+            })
+          } title='  With handle'
+        >
+        
+        </Button>
+      </View>
+    )
+  }
