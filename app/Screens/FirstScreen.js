@@ -52,15 +52,17 @@ export default class FirstScreen extends React.Component {
         BackHandler.removeEventListener('hardwareBackPress', this.handleBackButtonClick);
     }
     handleBackButtonClick() {
-        BackHandler.exitApp();
+        this.props.navigation.goBack(null);
         return true;
     }
 
     signup(data) {
 
-        this.props.navigation.navigate("Register",
+
+        console.log("DATA==============>",data);
+        this.props.navigation.navigate("Registerscreen",
             {
-                agent: data,
+                type: data,
 
             });
 
@@ -85,7 +87,7 @@ export default class FirstScreen extends React.Component {
         return (
 
             <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
-
+                
                 <View style={styles.container}>
                     <View >
 
@@ -112,8 +114,9 @@ export default class FirstScreen extends React.Component {
 
                     <Text style={{ width: APP_WIDTH, textAlign: 'center', marginTop: 10, fontSize: 20, marginBottom: 10, color: '#515151', fontWeight: '600' }}>What kind of service do you provide?</Text>
 
-                    <Card onPress={() => this.signup(1)} style={styles.card}>
-
+                    <Card style={styles.card}>
+                    <TouchableOpacity onPress={() => this.signup(1)} style={{marginLeft:15,flexDirection:'row', justifyContent: 'center', //Centered vertically
+                        alignItems: 'center',}}>
                         <Image style={{ marginLeft: 5, }}
                             source={require('../Images/truckoperator.png')} />
                         <View style={{ marginLeft: 5, flexDirection: 'column' }}>
@@ -121,11 +124,12 @@ export default class FirstScreen extends React.Component {
                             <Text style={styles.sectionTitle1}>I provide trasportation services,
                                 I won lorries</Text>
                         </View>
-
+                        </TouchableOpacity>
                     </Card>
 
                     <Card onPress={() => this.signup(2)} style={styles.card}>
-
+                    <TouchableOpacity onPress={() => this.signup(2)} style={{marginLeft:15,flexDirection:'row', justifyContent: 'center', //Centered vertically
+                        alignItems: 'center',}}>
                         <Image style={{ marginLeft: 5, }}
                             source={require('../Images/shipper.png')} />
                         <View style={{ marginLeft: 5, flexDirection: 'column' }}>
@@ -133,10 +137,11 @@ export default class FirstScreen extends React.Component {
                             <Text style={styles.sectionTitle1}>I own the good looking for
                                 transportion services</Text>
                         </View>
-
+                        </TouchableOpacity>
                     </Card>
-                    <Card onPress={() => this.signup(3)} style={styles.card}>
-
+                    <Card  style={styles.card}>
+                        <TouchableOpacity onPress={() => this.signup(3)} style={{marginLeft:15,flexDirection:'row', justifyContent: 'center', //Centered vertically
+        alignItems: 'center',}}>
                         <Image style={{ marginLeft: 5, }}
                             source={require('../Images/truckowner.png')} />
                         <View style={{ marginLeft: 5, flexDirection: 'column' }}>
@@ -144,7 +149,7 @@ export default class FirstScreen extends React.Component {
                             <Text style={styles.sectionTitle1}>I own the good looking for
                                 transportion services</Text>
                         </View>
-
+                        </TouchableOpacity>
                     </Card>
 
 

@@ -51,15 +51,15 @@ export default class LoginScreen extends React.Component {
 
     BackHandler.addEventListener('hardwareBackPress', this.handleBackButtonClick);
 
-    AsyncStorage.getItem("Token").then((result) => {
+    // AsyncStorage.getItem("Token").then((result) => {
 
-      let TOKEN = result;
+    //   let TOKEN = result;
 
-      this.setState({ deviceToken: TOKEN })
+    //   this.setState({ deviceToken: TOKEN })
 
 
 
-    }).done();
+    // }).done();
 
   }
   componentWillUnmount() {
@@ -76,32 +76,28 @@ export default class LoginScreen extends React.Component {
     else if (this.state.phone.trim().length > 10 || this.state.phone.trim().length < 10) {
       Alert.alert("Invalid Phone Number")
     }
-
-
     else {
 
-      var uniqueId = DeviceInfo.getUniqueId();
+      // var uniqueId = DeviceInfo.getUniqueId();
 
-      console.log("uniqueId", this.state.devicetoken);
+      // console.log("uniqueId", this.state.devicetoken);
 
-      let type;
+      // let type;
 
-      if (Platform.OS === 'android') {
+      // if (Platform.OS === 'android') {
 
-        type = 1;
-      }
-      else if (Platform.OS === 'ios') {
-        type = 2;
+      //   type = 1;
+      // }
+      // else if (Platform.OS === 'ios') {
+      //   type = 2;
 
-      }
+      // }
 
       this.setState({ loading: true });
       const networkServiceObj = new NetworkService()
       let input = {
         "phone_number": this.state.phone,
 
-        // "Password": this.state.password, "Deviceid": uniqueId,
-        // "DeviceToken": this.state.deviceToken, "Type": type
       }
 
 
@@ -116,12 +112,6 @@ export default class LoginScreen extends React.Component {
 
 
           if (response.status == 'Success') {
-
-            // AsyncStorage.setItem("user_id", response.user_id);
-
-            // AsyncStorage.setItem("Token", this.state.deviceToken);
-
-            // AsyncStorage.setItem("user_name", response.user_name);
 
             console.log("otp", response.data.otp);
             console.log("input", this.state.phone);

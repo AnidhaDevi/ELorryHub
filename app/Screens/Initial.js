@@ -50,11 +50,7 @@ class InitialScreen extends Component {
           this.setState({ strUserName: user_name })
 
 
-          this.props.navigation.navigate("FirstScreen",
-            {
-              user_id: this.state.strUserId,
-              User_Name: this.state.strUserName,
-            });
+          this.props.navigation.navigate("BottomTab");
         }).done();
 
       }

@@ -7,9 +7,12 @@ import InitialScreen from './Screens/Initial';
 import LoginScreen from './Screens/Login';
 import OTPScreen from './Screens/OTPLogin';
 import FirstScreen from './Screens/FirstScreen';
-import Registerscreen from './Screens/Registerscreen';
-
-Registerscreen
+import Registerscreen from './Screens/Register';
+import BottomTab from './Screens/BottomTab';
+import Homescreen from './Screens/Homescreen';
+import Directoryscreen from './Screens/Directory';
+import Profilescreen from './Screens/Profile';
+import MyLoadsscreen from './Screens/MyLoads';
 import PostTruckScreen from './Screens/PostTruck';
 
 const Navigation = createStackNavigator({
@@ -19,8 +22,12 @@ const Navigation = createStackNavigator({
   OTPScreen: { screen: OTPScreen },
   FirstScreen: { screen: FirstScreen },
   Registerscreen: { screen: Registerscreen },
+  BottomTab: { screen: BottomTab },
+  Homescreen: { screen: Homescreen},
+  Directoryscreen: { screen: Directoryscreen},
+  Profilescreen: { screen: Profilescreen},
+  MyLoadsscreen: { screen: MyLoadsscreen},
   PostTruck: { screen: PostTruckScreen },
-
 },
   {
     headerMode: 'none',
