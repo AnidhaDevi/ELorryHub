@@ -16,14 +16,9 @@ import { StackActions, NavigationActions } from 'react-navigation';
 import NetworkService from "../Services/NetworkService"
 import ProgressSpin from '../Components/ProgressSpin';
 import { BackHandler } from 'react-native';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import DeviceInfo from 'react-native-device-info';
-
-
 
 const APP_WIDTH = Dimensions.get("window").width;
 const APP_HEIGHT = Dimensions.get("window").height;
-
 
 
 export default class LoginScreen extends React.Component {
